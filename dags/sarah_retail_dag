@@ -1,0 +1,32 @@
+from airflow import DAG # pyright: ignore[reportMissingImports]
+from airflow.operators.python import PythonOperator # pyright: ignore[reportMissingImports]
+from datetime import datetime, timedelta
+import pandas as pd
+
+# 1. Define the "House Rules" (When to run)
+default_args = {
+    'start_date': datetime(2026, 4, 1),
+    'retries': 1,
+}
+
+with DAG(
+    dag_id='nigerian_food_prices_pipeline',
+    default_args=default_args,
+    schedule_interval='@weekly', # Runs every week automatically!
+    catchup=False
+) as dag:
+
+    # 2. Define the Tasks (The "To-Do" List)
+    def extract():
+        print("Extracting Lagos market prices for April 2026...")
+        # (Put your extraction code here)
+
+    def transform_and_upload():
+        print("Cleaning data and sending to S3...")
+        # (Put your transform/upload code here)
+
+    # 3. Connect the dots
+    task_1 = PythonOperator(task_id='extract_prices', python_callable=extract)
+    task_2 = PythonOperator(task_id='upload_to_s3', python_callable=transform_and_upload)
+
+    task_1 >> task_2  # This means: Do Task 1, then Task 2
