@@ -1,32 +1,49 @@
-from airflow import DAG # pyright: ignore[reportMissingImports]
-from airflow.operators.python import PythonOperator # pyright: ignore[reportMissingImports]
+from airflow import DAG
+from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 import pandas as pd
+import os
 
-# 1. Define the "House Rules" (When to run)
 default_args = {
+    'owner': 'Sarah_Ityav',
     'start_date': datetime(2026, 4, 1),
     'retries': 1,
 }
 
 with DAG(
-    dag_id='nigerian_food_prices_pipeline',
+    dag_id='sarah_retail_dag',
     default_args=default_args,
-    schedule_interval='@weekly', # Runs every week automatically!
+    schedule_interval='0 8 * * 1', # Mondays at 8:00 AM
     catchup=False
 ) as dag:
 
-    # 2. Define the Tasks (The "To-Do" List)
     def extract():
-        print("Extracting Lagos market prices for April 2026...")
-        # (Put your extraction code here)
+        # Using local paths based on your VS Code explorer
+        input_file = 'include/food_prices_raw.csv'
+        staging_file = 'include/raw_staging.csv'
+        
+        if not os.path.exists(input_file):
+            raise FileNotFoundError(f"Missing: {input_file}")
+            
+        df = pd.read_csv(input_file)
+        df.to_csv(staging_file, index=False)
+        print("Raw data extracted successfully.")
 
-    def transform_and_upload():
-        print("Cleaning data and sending to S3...")
-        # (Put your transform/upload code here)
+    def transform():
+        staging_file = 'include/raw_staging.csv'
+        # Final output saved in the include folder as requested
+        final_file = 'include/food_prices_cleaned.csv'
+        
+        df = pd.read_csv(staging_file)
+        
+        # Transformation Logic
+        df['Market'] = df['Market'].str.upper() # [cite: 53]
+        df['Price'] = df['Price'].replace(r'[N,\s]', '', regex=True).astype(float) # [cite: 54]
+        
+        df.to_csv(final_file, index=False)
+        print(f"Clean data saved to {final_file}")
 
-    # 3. Connect the dots
     task_1 = PythonOperator(task_id='extract_prices', python_callable=extract)
-    task_2 = PythonOperator(task_id='upload_to_s3', python_callable=transform_and_upload)
+    task_2 = PythonOperator(task_id='transform_and_clean', python_callable=transform)
 
-    task_1 >> task_2  # This means: Do Task 1, then Task 2
+    task_1 >> task_2
