@@ -1,49 +1,72 @@
-from airflow import DAG
-from airflow.operators.python import PythonOperator
+from airflow import DAG # pyright: ignore[reportMissingImports]
+from airflow.operators.python import PythonOperator # pyright: ignore[reportMissingImports]
 from datetime import datetime, timedelta
-import pandas as pd
+import pandas as pd # type: ignore
 import os
 
+# 1. Pipeline Configuration
 default_args = {
     'owner': 'Sarah_Ityav',
+    'depends_on_past': False,
     'start_date': datetime(2026, 4, 1),
+    'email_on_failure': False,
     'retries': 1,
+    'retry_delay': timedelta(minutes=5),
 }
 
 with DAG(
     dag_id='sarah_retail_dag',
     default_args=default_args,
-    schedule_interval='0 8 * * 1', # Mondays at 8:00 AM
-    catchup=False
+    description='Weekly ETL for Lagos Food Prices',
+    schedule_interval='0 8 * * 1', # Runs every Monday at 8:00 AM
+    catchup=False,
+    tags=['3MTT', 'Lagos_Markets']
 ) as dag:
 
-    def extract():
-        # Using local paths based on your VS Code explorer
+    # 2. EXTRACTION TASK
+    def extract_market_data():
+        # Local paths for your desktop project
         input_file = 'include/food_prices_raw.csv'
         staging_file = 'include/raw_staging.csv'
         
         if not os.path.exists(input_file):
-            raise FileNotFoundError(f"Missing: {input_file}")
+            raise FileNotFoundError(f"Missing input file: {input_file}")
             
         df = pd.read_csv(input_file)
         df.to_csv(staging_file, index=False)
-        print("Raw data extracted successfully.")
+        print(f"Successfully extracted {len(df)} records.")
 
-    def transform():
+    # 3. TRANSFORMATION TASK
+    def transform_and_clean_data():
         staging_file = 'include/raw_staging.csv'
-        # Final output saved in the include folder as requested
+        # Storing directly in the include folder as requested
         final_file = 'include/food_prices_cleaned.csv'
         
         df = pd.read_csv(staging_file)
         
-        # Transformation Logic
-        df['Market'] = df['Market'].str.upper() # [cite: 53]
-        df['Price'] = df['Price'].replace(r'[N,\s]', '', regex=True).astype(float) # [cite: 54]
+        # --- Cleaning Logic ---
+        # A. Make Market names uppercase
+        df['Market'] = df['Market'].str.upper()
         
+        # B. Clean Price (Removes N, commas, and spaces)
+        df['Price'] = df['Price'].replace(r'[N,\s]', '', regex=True).astype(float)
+        
+        # C. Remove empty rows
+        df = df.dropna(subset=['Price'])
+        
+        # Save the final clean file
         df.to_csv(final_file, index=False)
-        print(f"Clean data saved to {final_file}")
+        print(f"Transformation complete. Clean data saved to {final_file}")
 
-    task_1 = PythonOperator(task_id='extract_prices', python_callable=extract)
-    task_2 = PythonOperator(task_id='transform_and_clean', python_callable=transform)
+    # 4. Defining the Workflow
+    task_1 = PythonOperator(
+        task_id='extract_prices',
+        python_callable=extract_market_data
+    )
+
+    task_2 = PythonOperator(
+        task_id='transform_and_clean',
+        python_callable=transform_and_clean_data
+    )
 
     task_1 >> task_2
