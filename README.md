@@ -1,25 +1,39 @@
-# 🇳🇬 NGR Food Price Pipeline (Lagos)
+🇳🇬 NGR Food Price Pipeline (Lagos)
+📊 Project Overview
+This project is an automated Data Engineering pipeline designed to track the cost of food staples in Lagos, Nigeria. It automates the extraction and cleaning of market data for items like Rice and Tomatoes, providing a weekly snapshot of price trends in major markets like Mile 12, Mushin, and Oyingbo.
 
-## 📊 Project Overview
-This project is an automated Data Engineering pipeline designed to track the cost of food staples in Lagos, Nigeria. By capturing price data for items like Rice and Tomatoes, this tool provides a weekly snapshot of inflation trends during the April 2026 economic period.
+🛠️ The Tech Stack
+Language: Python 3.11+
 
-## 🛠️ The Tech Stack
-* **Language:** Python 3.11
-* **Orchestration:** Apache Airflow (via Astronomer CLI)
-* **Cloud Storage:** Amazon S3 (AWS)
-* **Environment:** Docker Desktop
+Data Library: Pandas (for cleaning and transformation)
 
-## 🏗️ How it Works
-1. **Extract:** Python scripts pull price data from major Lagos markets (Mile 12, Oyingbo).
-2. **Transform:** Data is cleaned and formatted into CSV files using Pandas.
-3. **Load:** The final reports are automatically uploaded to an AWS S3 bucket for cloud storage and future analysis.
+Orchestration: Apache Airflow (Logic) & Windows Task Scheduler (Execution)
 
-## 🚀 Key Features
-- **Security:** Uses `.env` files to protect AWS credentials.
-- **Automation:** Scheduled via Airflow DAGs to run without manual effort.
-- **Real-World Impact:** Tracked the 46% surge in tomato prices following the April 2026 Easter holidays.
+Storage: Local File System (CSV)
 
-## 📂 Project Structure
-- `/dags`: Contains the Airflow orchestration scripts.
-- `/include`: Stores raw data files and helper scripts.
-- `.env`: (Ignored via gitignore) Stores secret keys.
+🏗️ How it Works
+Extract: The pipeline pulls raw market data (food_prices_raw.csv) from the /include folder.
+
+Transform: Using Pandas, the data is cleaned and standardized:
+
+Market Names: Converted to UPPERCASE for consistency.
+
+Price Normalization: Removes Naira symbols (N), commas, and spaces to convert values into floats.
+
+Data Quality: Removes rows with missing prices and logs the total row count for verification.
+
+Load: The clean, analysis-ready data is saved as food_prices_cleaned.csv in the /include folder.
+
+🚀 Key Features
+Integrity Checks: Includes built-in print statements to log "Total Rows Processed," ensuring no data is lost during transformation.
+
+Automation: Configured to run "hands-free" every Monday at 8:00 AM via Windows Task Scheduler.
+
+Resilience: Implements file-path validation to prevent code crashes if input files are moved or missing.
+
+📂 Project Structure
+/dags: Contains sarah_retail_dag.py (the core pipeline logic).
+
+/include: Stores food_prices_raw.csv (input) and food_prices_cleaned.csv (output).
+
+requirements.txt: Lists all necessary libraries (apache-airflow, pandas).
