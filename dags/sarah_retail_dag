@@ -1,5 +1,5 @@
-from airflow import DAG # pyright: ignore[reportMissingImports]
-from airflow.operators.python import PythonOperator # pyright: ignore[reportMissingImports]
+from airflow import DAG # type: ignore
+from airflow.operators.python import PythonOperator # type: ignore
 from datetime import datetime, timedelta
 import pandas as pd # type: ignore
 import os
@@ -25,7 +25,6 @@ with DAG(
 
     # 2. EXTRACTION TASK
     def extract_market_data():
-        # Local paths for your desktop project
         input_file = 'include/food_prices_raw.csv'
         staging_file = 'include/raw_staging.csv'
         
@@ -34,29 +33,27 @@ with DAG(
             
         df = pd.read_csv(input_file)
         df.to_csv(staging_file, index=False)
-        print(f"Successfully extracted {len(df)} records.")
+        
+        # --- ADDED CHECK ---
+        print(f"Extraction Success: {len(df)} raw records moved to staging.")
 
     # 3. TRANSFORMATION TASK
     def transform_and_clean_data():
         staging_file = 'include/raw_staging.csv'
-        # Storing directly in the include folder as requested
         final_file = 'include/food_prices_cleaned.csv'
         
         df = pd.read_csv(staging_file)
         
         # --- Cleaning Logic ---
-        # A. Make Market names uppercase
         df['Market'] = df['Market'].str.upper()
-        
-        # B. Clean Price (Removes N, commas, and spaces)
         df['Price'] = df['Price'].replace(r'[N,\s]', '', regex=True).astype(float)
-        
-        # C. Remove empty rows
         df = df.dropna(subset=['Price'])
         
         # Save the final clean file
         df.to_csv(final_file, index=False)
-        print(f"Transformation complete. Clean data saved to {final_file}")
+        
+        # --- ADDED CHECK ---
+        print(f"Transformation Success: {len(df)} clean records saved to food_prices_cleaned.csv.")
 
     # 4. Defining the Workflow
     task_1 = PythonOperator(
