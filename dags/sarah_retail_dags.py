@@ -45,21 +45,23 @@ with DAG(
 
         df = pd.read_csv(staging_file)
         
-        # --- Cleaning Logic (Updated to match your lowercase CSV headers) ---
+        # --- Cleaning Logic ---
         
         # 1. Capitalize market names (e.g., mile 12 -> MILE 12)
         df['market'] = df['market'].str.upper()
         
-        # 2. Clean the price column
-        # Removes 'N', commas, spaces, and the Naira symbol (₦)
+        # 2. Clean the price column (Removes N, commas, and spaces)
         df['price_naira'] = df['price_naira'].replace(r'[N,₦\s,]', '', regex=True).astype(float)
         
-        # 3. Remove rows with missing prices
+        # 3. UPDATE THE DATE TO TODAY'S DATE
+        df['date_recorded'] = datetime.now().strftime('%Y-%m-%d')
+        
+        # 4. Remove rows with missing prices
         df = df.dropna(subset=['price_naira'])
         
         # Save the final clean file
         df.to_csv(final_file, index=False)
-        print(f"Transformation Success: {len(df)} clean records saved to food_prices_cleaned.csv.")
+        print(f"Transformation Success! Clean records saved. Date updated to: {datetime.now().strftime('%Y-%m-%d')}")
 
     # 4. Defining the Airflow Workflow
     task_1 = PythonOperator(
@@ -78,7 +80,6 @@ with DAG(
 if __name__ == "__main__":
     print("Starting the Sarah Retail Pipeline...")
     try:
-        # Triggering the functions directly for testing in VS Code
         extract_market_data()
         transform_and_clean_data()
         print("Pipeline execution complete! Check your include folder.")
