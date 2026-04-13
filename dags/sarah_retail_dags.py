@@ -3,6 +3,7 @@ from airflow.operators.python import PythonOperator # type: ignore
 from datetime import datetime, timedelta
 import pandas as pd # type: ignore
 import os
+from sqlalchemy import create_engine # type: ignore
 
 # 1. Pipeline Configuration
 default_args = {
@@ -18,7 +19,7 @@ with DAG(
     dag_id='sarah_retail_dag',
     default_args=default_args,
     description='Weekly ETL for Lagos Food Prices',
-    schedule='0 8 * * 1', # Runs every Monday at 8:00 AM
+    schedule='0 8 * * 1', 
     catchup=False,
     tags=['3MTT', 'Lagos_Markets']
 ) as dag:
@@ -45,25 +46,31 @@ with DAG(
 
         df = pd.read_csv(staging_file)
         
-        # --- Cleaning Logic ---
-        
-        # 1. Capitalize market names (e.g., mile 12 -> MILE 12)
+        # Cleaning Logic
         df['market'] = df['market'].str.upper()
-        
-        # 2. Clean the price column (Removes N, commas, and spaces)
         df['price_naira'] = df['price_naira'].replace(r'[N,₦\s,]', '', regex=True).astype(float)
         
-        # 3. UPDATE THE DATE TO TODAY'S DATE
+        # Update date to today
         df['date_recorded'] = datetime.now().strftime('%Y-%m-%d')
         
-        # 4. Remove rows with missing prices
         df = df.dropna(subset=['price_naira'])
-        
-        # Save the final clean file
         df.to_csv(final_file, index=False)
-        print(f"Transformation Success! Clean records saved. Date updated to: {datetime.now().strftime('%Y-%m-%d')}")
+        print(f"Transformation Success! Date updated to: {datetime.now().strftime('%Y-%m-%d')}")
 
-    # 4. Defining the Airflow Workflow
+    # 4. LOADING TASK (Updated with project_db)
+    def load_to_postgres():
+        final_file = 'include/food_prices_cleaned.csv'
+        
+        # Connection string updated: ...5432/project_db
+        engine = create_engine('postgresql://postgres:Sarah123@localhost:5432/project_db')
+        
+        df = pd.read_csv(final_file)
+        
+        # Pushes data to the lagos_market_prices table you created
+        df.to_sql('lagos_market_prices', engine, if_exists='replace', index=False)
+        print(f"Success: {len(df)} records successfully loaded into project_db!")
+
+    # 5. Defining the Airflow Workflow
     task_1 = PythonOperator(
         task_id='extract_prices',
         python_callable=extract_market_data
@@ -74,14 +81,21 @@ with DAG(
         python_callable=transform_and_clean_data
     )
 
-    task_1 >> task_2
+    task_3 = PythonOperator(
+        task_id='load_to_postgres',
+        python_callable=load_to_postgres
+    )
 
-# 5. MANUAL TRIGGER BLOCK
+    # Workflow Order
+    task_1 >> task_2 >> task_3
+
+# 6. MANUAL TRIGGER BLOCK
 if __name__ == "__main__":
-    print("Starting the Sarah Retail Pipeline...")
+    print("Starting the Sarah Retail Full ETL Pipeline...")
     try:
         extract_market_data()
         transform_and_clean_data()
-        print("Pipeline execution complete! Check your include folder.")
+        load_to_postgres()
+        print("Full ETL execution complete! Check pgAdmin 4.")
     except Exception as e:
         print(f"An error occurred during the manual run: {e}")
