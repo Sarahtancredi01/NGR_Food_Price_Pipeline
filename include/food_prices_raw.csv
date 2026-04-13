@@ -1,9 +1,9 @@
 item,price_naira,unit,market,date_recorded
-Rice (local),61000,50kg bag,Mile 12,2026-04-09
-Tomato,60000,Big basket,Mile 12,2026-04-09
-Beans (brown),950,1kg,General,2026-04-09
-Onion,450,1kg,General,2026-04-09
-Garri (white),800,1kg,Mushin,2026-04-09
+Rice (local),61000,50kg bag,Mile 12,2026-04-13
+Tomato,60000,Big basket,Mile 12,2026-04-13
+Beans (brown),950,1kg,General,2026-04-13
+Onion,450,1kg,General,2026-04-13
+Garri (white),800,1kg,Mushin,2026-04-13
 Imported Rice,85000,50kg bag,Mile 12,2026-04-13
 White Maize,1200,1 Paint (Mudu),Oyingbo,2026-04-13
 New Yam,4500,1 Tuber,Mile 12,2026-04-13
@@ -13,3 +13,21 @@ Eggs,5500,1 Crate,General,2026-04-13
 Fresh Pepper (Atarodo),5000,1kg,Mile 12,2026-04-13
 Palm Oil,1200,1 Bottle (75cl),Mushin,2026-04-13
 Vegetable Oil,1500,1 Bottle (75cl),Oyingbo,2026-04-13
+Yellow Maize,1300,1 Paint (Mudu),Oyingbo,2026-04-13
+Garri (yellow),950,1kg,Mushin,2026-04-13
+Plantain (Ripe),3500,1 Bunch,Mile 12,2026-04-13
+Plantain (Unripe),3200,1 Bunch,Mile 12,2026-04-13
+Frozen Chicken,5500,1kg,General,2026-04-13
+Frozen Fish (Titus),4800,1kg,Mushin,2026-04-13
+Cowpea,1100,1kg,Oyingbo,2026-04-13
+Irish Potato,22000,1 Basket,Mile 12,2026-04-13
+Dried Fish,8500,1 Medium Plate,Oyingbo,2026-04-13
+Crayfish,4500,1 Paint (Mudu),Oyingbo,2026-04-13
+Salt,300,500g Pack,General,2026-04-13
+Sugar,1500,1kg Pack,General,2026-04-13
+Bread (Family Loaf),1200,1 Loaf,General,2026-04-13
+Ugwu Leaves,500,1 Bundle,Mile 12,2026-04-13
+Ewedu Leaves,400,1 Bundle,Mushin,2026-04-13
+Okra,1500,1 Small Basket,Mile 12,2026-04-13
+Groundnut,1800,1 Bottle,Oyingbo,2026-04-13
+Soya Beans,1100,1kg,Oyingbo,2026-04-13
