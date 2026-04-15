@@ -1,28 +1,35 @@
 # 🇳🇬 NGR Food Price Pipeline (Lagos)
 
 ## 📊 Project Overview
-This project is an automated Data Engineering pipeline designed to track the cost of food staples in Lagos, Nigeria. It automates the extraction and cleaning of market data for items like Rice and Tomatoes, providing a weekly snapshot of price trends in major markets like Mile 12, Mushin, and Oyingbo.
+This project is an automated Data Engineering pipeline designed to track the cost of food staples in Lagos, Nigeria. It automates the extraction, cleaning, and migration of market data for 32 essential items, providing a weekly snapshot of price trends in major markets like Mile 12, Mushin, and Oyingbo.
 
 ## 🛠️ The Tech Stack
 * **Language:** Python 3.11+
-* **Data Library:** Pandas (for cleaning and transformation)
-* **Orchestration:** Apache Airflow (Logic) & Windows Task Scheduler (Execution)
-* **Storage:** Local File System (CSV)
+* **Data Processing:** Pandas & CSV (for cleaning and transformation)
+* **Database:** PostgreSQL (Relational storage for longitudinal analysis)
+* **Orchestration:** Windows Task Scheduler (Automated weekly execution)
+* **Security:** python-dotenv (Credential Management)
 
 ## 🏗️ How it Works
-* **Extract:** The pipeline pulls raw market data (`food_prices_raw.csv`) from the `/include` folder.
-* **Transform:** Using **Pandas**, the data is cleaned and standardized:
-    * **Market Names:** Converted to UPPERCASE for consistency.
-    * **Price Normalization:** Removes Naira symbols (N), commas, and spaces to convert values into floats.
-    * **Data Quality:** Removes rows with missing prices and logs the total row count for verification.
-* **Load:** The clean, analysis-ready data is saved as `food_prices_cleaned.csv` in the `/include` folder.
+1. **Extract:** The pipeline systematically pulls raw market data from the designated local directory using Python's `os` and `csv` modules.
+2. **Transform:** Using **Pandas**, the data is standardized for analysis:
+    * **Market Names:** Converted to UPPERCASE for unified reporting across all market locations.
+    * **Price Normalization:** Removes Naira symbols (₦), commas, and spaces to convert currency strings into precise numerical (float) formats.
+    * **Data Quality:** Implements "pre-flight" validation to handle missing values and verify schema integrity before loading.
+3. **Load:** The clean, high-integrity data is migrated into a **PostgreSQL** database environment, verified and managed via **pgAdmin 4**.
+
+
 
 ## 🚀 Key Features
-* **Integrity Checks:** Includes built-in print statements to log "Total Rows Processed," ensuring no data is lost during transformation.
-* **Automation:** Configured to run "hands-free" every Monday at 8:00 AM via Windows Task Scheduler.
-* **Resilience:** Implements file-path validation to prevent code crashes if input files are moved or missing.
+* **Automated Scheduling:** Configured to run "hands-free" every Monday at 8:00 AM via Windows Task Scheduler.
+* **Security First:** Sensitive database credentials (host, user, password) are kept out of the source code using `.env` files and secured via `.gitignore`.
+* **Scalability:** Built with a modular logic, allowing for the easy addition of new markets or food commodities without changing the core engine.
 
 ## 📂 Project Structure
-* **`/dags`**: Contains `sarah_retail_dag.py` (the core pipeline logic).
-* **`/include`**: Stores `food_prices_raw.csv` (input) and `food_prices_cleaned.csv` (output).
-* **`requirements.txt`**: Lists all necessary libraries (`apache-airflow`, `pandas`).
+* **`/data`**: Stores the raw input market files and intermediate processing logs.
+* **`/scripts`**: Contains the core Python ETL logic and database connection functions.
+* **`.env`**: (Hidden) Stores secure environment variables for database access.
+* **`requirements.txt`**: Lists all necessary libraries (`pandas`, `sqlalchemy`, `psycopg2-binary`, `python-dotenv`).
+
+---
+© 2026 Sarah O. Ityav | 3MTT Data Engineering Fellow
