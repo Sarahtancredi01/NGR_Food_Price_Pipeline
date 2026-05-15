@@ -1,33 +1,126 @@
 item,price_naira,unit,market,date_recorded
-Rice (local),61000.0,50kg bag,MILE 12,2026-05-11
-Tomato,60000.0,Big basket,MILE 12,2026-05-11
-Beans (brown),950.0,1kg,GENERAL,2026-05-11
-Onion,450.0,1kg,GENERAL,2026-05-11
-Garri (white),800.0,1kg,MUSHIN,2026-05-11
-Imported Rice,85000.0,50kg bag,MILE 12,2026-05-11
-White Maize,1200.0,1 Paint (Mudu),OYINGBO,2026-05-11
-New Yam,4500.0,1 Tuber,MILE 12,2026-05-11
-Sweet Potato,15000.0,1 Basket,MUSHIN,2026-05-11
-Beef (with bone),4500.0,1kg,GENERAL,2026-05-11
-Eggs,5500.0,1 Crate,GENERAL,2026-05-11
-Fresh Pepper (Atarodo),5000.0,1kg,MILE 12,2026-05-11
-Palm Oil,1200.0,1 Bottle (75cl),MUSHIN,2026-05-11
-Vegetable Oil,1500.0,1 Bottle (75cl),OYINGBO,2026-05-11
-Yellow Maize,1300.0,1 Paint (Mudu),OYINGBO,2026-05-11
-Garri (yellow),950.0,1kg,MUSHIN,2026-05-11
-Plantain (Ripe),3500.0,1 Bunch,MILE 12,2026-05-11
-Plantain (Unripe),3200.0,1 Bunch,MILE 12,2026-05-11
-Frozen Chicken,5500.0,1kg,GENERAL,2026-05-11
-Frozen Fish (Titus),4800.0,1kg,MUSHIN,2026-05-11
-Cowpea,1100.0,1kg,OYINGBO,2026-05-11
-Irish Potato,22000.0,1 Basket,MILE 12,2026-05-11
-Dried Fish,8500.0,1 Medium Plate,OYINGBO,2026-05-11
-Crayfish,4500.0,1 Paint (Mudu),OYINGBO,2026-05-11
-Salt,300.0,500g Pack,GENERAL,2026-05-11
-Sugar,1500.0,1kg Pack,GENERAL,2026-05-11
-Bread (Family Loaf),1200.0,1 Loaf,GENERAL,2026-05-11
-Ugwu Leaves,500.0,1 Bundle,MILE 12,2026-05-11
-Ewedu Leaves,400.0,1 Bundle,MUSHIN,2026-05-11
-Okra,1500.0,1 Small Basket,MILE 12,2026-05-11
-Groundnut,1800.0,1 Bottle,OYINGBO,2026-05-11
-Soya Beans,1100.0,1kg,OYINGBO,2026-05-11
+Rice (local),61000,50kg bag,MILE 12,2026-05-15
+Tomato,60000,Big basket,MILE 12,2026-05-15
+Beans (brown),950,1kg,GENERAL,2026-05-15
+Onion,450,1kg,GENERAL,2026-05-15
+Garri (white),800,1kg,MUSHIN,2026-05-15
+Imported Rice,85000,50kg bag,MILE 12,2026-05-15
+White Maize,1200,1 Paint (Mudu),OYINGBO,2026-05-15
+New Yam,4500,1 Tuber,MILE 12,2026-05-15
+Sweet Potato,15000,1 Basket,MUSHIN,2026-05-15
+Beef (with bone),4500,1kg,GENERAL,2026-05-15
+Eggs,5500,1 Crate,GENERAL,2026-05-15
+Fresh Pepper (Atarodo),5000,1kg,MILE 12,2026-05-15
+Palm Oil,1200,1 Bottle (75cl),MUSHIN,2026-05-15
+Vegetable Oil,1500,1 Bottle (75cl),OYINGBO,2026-05-15
+Yellow Maize,1300,1 Paint (Mudu),OYINGBO,2026-05-15
+Garri (yellow),950,1kg,MUSHIN,2026-05-15
+Plantain (Ripe),3500,1 Bunch,MILE 12,2026-05-15
+Plantain (Unripe),3200,1 Bunch,MILE 12,2026-05-15
+Frozen Chicken,5500,1kg,GENERAL,2026-05-15
+Frozen Fish (Titus),4800,1kg,MUSHIN,2026-05-15
+Cowpea,1100,1kg,OYINGBO,2026-05-15
+Irish Potato,22000,1 Basket,MILE 12,2026-05-15
+Dried Fish,8500,1 Medium Plate,OYINGBO,2026-05-15
+Crayfish,4500,1 Paint (Mudu),OYINGBO,2026-05-15
+Salt,300,500g Pack,GENERAL,2026-05-15
+Sugar,1500,1kg Pack,GENERAL,2026-05-15
+Bread (Family Loaf),1200,1 Loaf,GENERAL,2026-05-15
+Ugwu Leaves,500,1 Bundle,MILE 12,2026-05-15
+Ewedu Leaves,400,1 Bundle,MUSHIN,2026-05-15
+Okra,1500,1 Small Basket,MILE 12,2026-05-15
+Groundnut,1800,1 Bottle,OYINGBO,2026-05-15
+Soya Beans,1100,1kg,OYINGBO,2026-05-15
+Rice (local),4500,5kg bag,AKUTE,2026-05-15
+Rice (local),8500,10kg bag,AREPO,2026-05-15
+Rice (local),4200,5kg bag,WUSE,2026-05-15
+Rice (local),8000,10kg bag,GARKI,2026-05-15
+Imported Rice,11000,5kg bag,ALAGBOLE,2026-05-15
+Imported Rice,12000,5kg bag,UTAKO,2026-05-15
+Vegetable Oil,3500,1 Litre,AKUTE,2026-05-15
+Vegetable Oil,3800,1 Litre,WUSE,2026-05-15
+Palm Oil,1900,1 Litre,AREPO,2026-05-15
+Palm Oil,2200,1 Litre,UTAKO,2026-05-15
+Palm Oil,9500,5 Litre,ILEPO,2026-05-15
+Palm Oil,10500,5 Litre,GARKI,2026-05-15
+Beef (boneless),6500,1kg,UTAKO,2026-05-15
+Beef (boneless),6200,1kg,ILEPO,2026-05-15
+Eggs,6200,1 Crate,WUSE,2026-05-15
+Eggs,5900,1 Crate,AKUTE,2026-05-15
+Frozen Chicken,7500,1kg,GARKI,2026-05-15
+Frozen Chicken,6800,1kg,AREPO,2026-05-15
+Fresh Fish (Catfish),5500,1kg,WUSE,2026-05-15
+Fresh Fish (Catfish),4800,1kg,ILEPO,2026-05-15
+Yam (Large),5500,1 Tuber,ILEPO,2026-05-15
+Yam (Large),6000,1 Tuber,WUSE,2026-05-15
+Garri (white),3200,1 Paint (Mudu),AKUTE,2026-05-15
+Garri (white),3000,1 Paint (Mudu),GARKI,2026-05-15
+Beans (brown),2400,1 Mudu,UTAKO,2026-05-15
+Beans (brown),2100,1 Mudu,ALAGBOLE,2026-05-15
+Tomatoes,18000,Small Basket,WUSE,2026-05-15
+Tomatoes,15000,Small Basket,ILEPO,2026-05-15
+Onions,1200,1kg,GARKI,2026-05-15
+Onions,1100,1kg,AREPO,2026-05-15
+Pepper (Rodo),3500,1kg,UTAKO,2026-05-15
+Pepper (Rodo),3000,1kg,AKUTE,2026-05-15
+Golden Morn,3200,600g Pack,AKUTE,2026-05-15
+Golden Morn,5800,1kg Pack,WUSE,2026-05-15
+Milo (Sachet),4500,400g Sachet,AREPO,2026-05-15
+Milo (Sachet),9000,800g Sachet,GARKI,2026-05-15
+Milk (Peak Sachet),5200,350g Sachet,ILEPO,2026-05-15
+Milk (Peak Sachet),9800,800g Sachet,UTAKO,2026-05-15
+Butter (Blue Band),2800,450g Tub,ALAGBOLE,2026-05-15
+Butter (Blue Band),1600,250g Tub,GARKI,2026-05-15
+Nutella,6500,350g Jar,WUSE,2026-05-15
+Nutella,11500,750g Jar,AREPO,2026-05-15
+Pita Bread,1200,Pack of 5,AKUTE,2026-05-15
+Pita Bread,1500,Pack of 5,UTAKO,2026-05-15
+Golden Penny Spaghetti,950,500g Pack,AKUTE,2026-05-15
+Golden Penny Spaghetti,900,500g Pack,ILEPO,2026-05-15
+Crown Spaghetti,850,500g Pack,WUSE,2026-05-15
+Crown Spaghetti,800,500g Pack,ALAGBOLE,2026-05-15
+Indomie (Hungryman),6500,Carton (24pcs),AKUTE,2026-05-15
+Spaghetti (Dangote),800,500g Pack,GENERAL,2026-05-15
+Macaroni,750,500g Pack,GENERAL,2026-05-15
+Semovita,1200,1kg,AREPO,2026-05-15
+Semovita,5500,5kg,GARKI,2026-05-15
+Wheat Flour,1100,1kg,ILEPO,2026-05-15
+Poundo Yam,1500,1kg,WUSE,2026-05-15
+Seasoning (Maggi),1200,1 Pack (100 cubes),GENERAL,2026-05-15
+Curry Powder,350,Small Sachet,GENERAL,2026-05-15
+Thyme,350,Small Sachet,GENERAL,2026-05-15
+Tomato Paste (Tin),550,70g Tin,GENERAL,2026-05-15
+Sardines (Tin),1100,1 Tin,GENERAL,2026-05-15
+Honey,3500,50cl Bottle,OYINGBO,2026-05-15
+Green Peas,1200,1kg,UTAKO,2026-05-15
+Carrots,800,1kg,MILE 12,2026-05-15
+Cabbage,1500,1 Head,WUSE,2026-05-15
+Cucumber,600,1kg,MILE 12,2026-05-15
+Garlic,500,Small Bunch,GENERAL,2026-05-15
+Ginger,500,Small Bunch,GENERAL,2026-05-15
+Turmeric,400,Small Bunch,GENERAL,2026-05-15
+Green Pepper,1200,1kg,MILE 12,2026-05-15
+Bottled Water,200,75cl Bottle,GENERAL,2026-05-15
+Maggi Star,950,Pack (100 cubes),AREPO,2026-05-15
+Knorr Chicken,1100,Pack (50 cubes),UTAKO,2026-05-15
+Oatmeal (Quaker),4500,500g Tin,WUSE,2026-05-15
+Oatmeal (Quaker),8500,1kg Tin,ALAGBOLE,2026-05-15
+Iodized Salt,500,1kg Pack,GARKI,2026-05-15
+Granulated Sugar,1800,1kg Pack,UTAKO,2026-05-15
+Sardines (Titus),1300,1 Tin,AKUTE,2026-05-15
+Tomato Ketchup,2200,500g Bottle,WUSE,2026-05-15
+Tomato Ketchup,1800,350g Bottle,AKUTE,2026-05-15
+Mayonnaise (Bama),3800,473ml Jar,AREPO,2026-05-15
+Mayonnaise (Bama),7200,946ml Jar,GARKI,2026-05-15
+Hot Dog Sausage,2500,Pack of 10,ILEPO,2026-05-15
+Sausage Rolls (Bigi),150,1 Piece,GENERAL,2026-05-15
+Soft Drinks (Coke/Fanta),4500,Pack of 12 (50cl),AKUTE,2026-05-15
+Soft Drinks (Coke/Fanta),9000,Case of 24 (50cl),WUSE,2026-05-15
+Mcvities Digestive,15500,Carton,ILEPO,2026-05-15
+Mcvities Digestive,800,Small Pack,GENERAL,2026-05-15
+Munch It (Large),3500,Pack of 10,AREPO,2026-05-15
+Munch It (Small),150,1 Sachet,GENERAL,2026-05-15
+Cabin Biscuits,6500,Carton,OYINGBO,2026-05-15
+Pringles,2200,110g Can,UTAKO,2026-05-15
+Hollandia Yoghurt,1800,1 Litre,WUSE,2026-05-15
+Exotic Juice,1500,1 Litre,GENERAL,2026-05-15
