@@ -60,7 +60,7 @@ Built to handle incomplete or inconsistent records without breaking the workflow
 
 📂 Project Structure
 
-ags.py – Main ETL script
+sarah_retail_dags.py – Main ETL script
 
 /include – Stores raw, staging, and cleaned CSV files
 
