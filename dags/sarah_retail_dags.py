@@ -10,7 +10,6 @@ from dotenv import load_dotenv # type: ignore
 load_dotenv()
 
 # 2. Pipeline Configuration
-# These settings help the system know who is running the pipeline
 default_args = {
     'owner': 'Sarah_Ityav',
     'depends_on_past': False,
@@ -31,7 +30,7 @@ def extract_market_data():
         # Dummy data to prevent crash if file is missing
         df_dummy = pd.DataFrame([{
             'item': 'Rice (local)', 
-            'price_naira': '61000', 
+            'price_naira': '61,000.00', # Added a standard comma/decimal format to test regex
             'unit': '50kg bag', 
             'market': 'Mile 12', 
             'date_recorded': '2026-04-13'
@@ -43,7 +42,6 @@ def extract_market_data():
     print(f"Extraction Success: {len(df)} raw records moved to staging.")
 
 # 4. TRANSFORMATION TASK 
-# This handles cleaning and national standardization
 def transform_and_clean_data():
     staging_file = 'include/raw_staging.csv'
     final_file = 'include/food_prices_cleaned.csv'
@@ -54,21 +52,15 @@ def transform_and_clean_data():
     df = pd.read_csv(staging_file)
     
     # --- DATA INTEGRITY: REMOVE HEADER REPETITIONS ---
-    # This prevents the 'could not convert string to float' error
     df = df[df['price_naira'].astype(str) != 'price_naira']
     
     # --- STANDARDIZATION ---
-    # Converts market names to UPPERCASE (e.g., 'wuse' becomes 'WUSE')
-    # This is vital for cross-state data consistency
     df['market'] = df['market'].str.upper()
     
-    # --- NUMERIC CONVERSION ---
-    # Removes Naira symbols, commas, and spaces. 
-    # errors='coerce' turns bad data into 'NaN' (empty) so the script doesn't stop.
-    df['price_naira'] = pd.to_numeric(
-        df['price_naira'].astype(str).replace(r'[N,₦\s,]', '', regex=True), 
-        errors='coerce'
-    )
+    # --- NUMERIC CONVERSION (FIXED REGEX) ---
+    # Strips out Currency symbols, spaces, and commas cleanly
+    cleaned_price_series = df['price_naira'].astype(str).replace(r'[N₦\s,]', '', regex=True)
+    df['price_naira'] = pd.to_numeric(cleaned_price_series, errors='coerce')
     
     # Remove any rows where the price was invalid or empty
     df = df.dropna(subset=['price_naira'])
@@ -83,25 +75,23 @@ def transform_and_clean_data():
 def load_to_postgres():
     final_file = 'include/food_prices_cleaned.csv'
     
-    # Pulling credentials from your hidden .env file
     db_user = os.getenv('DB_USER')
     db_password = os.getenv('DB_PASSWORD')
     db_host = os.getenv('DB_HOST')
     db_port = os.getenv('DB_PORT')
     db_name = os.getenv('DB_NAME')
     
-    # Connection string construction
     connection_string = f'postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
     engine = create_engine(connection_string)
     
     df = pd.read_csv(final_file)
     
-    # LOAD INTO DATABASE
-    # Renamed to 'ngr_market_prices' to reflect the national expansion
-    df.to_sql('ngr_market_prices', engine, if_exists='replace', index=False)
+    # LOAD INTO DATABASE 
+    # Changed to 'append' so you can store historical records over time for inflation trend analysis!
+    df.to_sql('ngr_market_prices', engine, if_exists='append', index=False)
     print(f"Success: Records loaded into database table: ngr_market_prices!")
 
-# 6. MANUAL TRIGGER BLOCK (The "Play" Button)
+# 6. MANUAL TRIGGER BLOCK
 if __name__ == "__main__":
     print("--- Starting the Sarah Retail Secured ETL Pipeline ---")
     try:
@@ -110,4 +100,4 @@ if __name__ == "__main__":
         load_to_postgres()
         print("--- Full ETL execution complete! Check pgAdmin 4 for ngr_market_prices. ---")
     except Exception as e:
-        print(f"An error occurred during the run: {e}")
+        print(f"An error occurred during the run: {e}") 
