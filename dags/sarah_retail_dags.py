@@ -1,13 +1,16 @@
-# from airflow import DAG # type: ignore
-# from airflow.operators.python import PythonOperator # type: ignore
 from datetime import datetime, timedelta
-import pandas as pd # type: ignore
 import os
-from sqlalchemy import create_engine # type: ignore
-from dotenv import load_dotenv # type: ignore
+import pandas as pd  # type: ignore
+from sqlalchemy import create_engine  # type: ignore
+from dotenv import load_dotenv  # type: ignore
 
 # 1. LOAD SECURE ENVIRONMENT VARIABLES
 load_dotenv()
+
+# Navigate up one directory level from 'dags/' to project root
+DAGS_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(DAGS_DIR)
+INCLUDE_DIR = os.path.join(PROJECT_ROOT, 'include')
 
 # 2. Pipeline Configuration
 default_args = {
@@ -21,59 +24,56 @@ default_args = {
 
 # 3. EXTRACTION TASK
 def extract_market_data():
-    input_file = 'include/food_prices_raw.csv'
-    staging_file = 'include/raw_staging.csv'
+    input_file = os.path.join(INCLUDE_DIR, 'food_prices_raw.csv')
+    staging_file = os.path.join(INCLUDE_DIR, 'raw_staging.csv')
+    
+    os.makedirs(INCLUDE_DIR, exist_ok=True)
     
     if not os.path.exists(input_file):
-        print(f"Warning: {input_file} not found. Creating a sample folder...")
-        os.makedirs('include', exist_ok=True)
-        # Dummy data to prevent crash if file is missing
-        df_dummy = pd.DataFrame([{
-            'item': 'Rice (local)', 
-            'price_naira': '61,000.00', # Added a standard comma/decimal format to test regex
-            'unit': '50kg bag', 
-            'market': 'Mile 12', 
-            'date_recorded': '2026-04-13'
-        }])
-        df_dummy.to_csv(input_file, index=False)
+        raise FileNotFoundError(
+            f"Extraction Failed: '{input_file}' was not found. "
+            f"Ensure the 125-row raw CSV is placed inside '{INCLUDE_DIR}'."
+        )
         
     df = pd.read_csv(input_file)
     df.to_csv(staging_file, index=False)
-    print(f"Extraction Success: {len(df)} raw records moved to staging.")
+    print(f"Extraction Success: {len(df)} raw records staged.")
 
 # 4. TRANSFORMATION TASK 
 def transform_and_clean_data():
-    staging_file = 'include/raw_staging.csv'
-    final_file = 'include/food_prices_cleaned.csv'
+    staging_file = os.path.join(INCLUDE_DIR, 'raw_staging.csv')
+    final_file = os.path.join(INCLUDE_DIR, 'food_prices_cleaned.csv')
     
     if not os.path.exists(staging_file):
         raise FileNotFoundError(f"Missing staging file: {staging_file}")
 
     df = pd.read_csv(staging_file)
+    initial_count = len(df)
     
-    # --- DATA INTEGRITY: REMOVE HEADER REPETITIONS ---
-    df = df[df['price_naira'].astype(str) != 'price_naira']
+    # Remove header repetitions
+    df = df[df['price_naira'].astype(str).str.strip().str.lower() != 'price_naira']
     
-    # --- STANDARDIZATION ---
-    df['market'] = df['market'].str.upper()
+    # Standardize text columns
+    df['market'] = df['market'].astype(str).str.upper()
     
-    # --- NUMERIC CONVERSION (FIXED REGEX) ---
-    # Strips out Currency symbols, spaces, and commas cleanly
-    cleaned_price_series = df['price_naira'].astype(str).replace(r'[N₦\s,]', '', regex=True)
+    # Clean currency symbols (N, ₦, NGN, spaces, commas)
+    cleaned_price_series = df['price_naira'].astype(str).replace(r'[N₦\s,]|NGN', '', regex=True)
     df['price_naira'] = pd.to_numeric(cleaned_price_series, errors='coerce')
     
-    # Remove any rows where the price was invalid or empty
-    df = df.dropna(subset=['price_naira'])
+    # Audit dropped rows before discarding
+    invalid_rows = df[df['price_naira'].isna()]
+    if not invalid_rows.empty:
+        print(f"Warning: {len(invalid_rows)} records dropped due to unparseable price values.")
     
-    # Update date to the current run date
+    df = df.dropna(subset=['price_naira'])
     df['date_recorded'] = datetime.now().strftime('%Y-%m-%d')
     
     df.to_csv(final_file, index=False)
-    print(f"Transformation Success! {len(df)} records standardized and validated.")
+    print(f"Transformation Success! Output saved with {len(df)} / {initial_count} valid records.")
 
 # 5. SECURED LOADING TASK
 def load_to_postgres():
-    final_file = 'include/food_prices_cleaned.csv'
+    final_file = os.path.join(INCLUDE_DIR, 'food_prices_cleaned.csv')
     
     db_user = os.getenv('DB_USER')
     db_password = os.getenv('DB_PASSWORD')
@@ -85,19 +85,16 @@ def load_to_postgres():
     engine = create_engine(connection_string)
     
     df = pd.read_csv(final_file)
-    
-    # LOAD INTO DATABASE 
-    # Changed to 'append' so you can store historical records over time for inflation trend analysis!
     df.to_sql('ngr_market_prices', engine, if_exists='append', index=False)
-    print(f"Success: Records loaded into database table: ngr_market_prices!")
+    print(f"Success: {len(df)} records loaded into table 'ngr_market_prices'.")
 
 # 6. MANUAL TRIGGER BLOCK
 if __name__ == "__main__":
-    print("--- Starting the Sarah Retail Secured ETL Pipeline ---")
+    print("--- Starting Secured ETL Pipeline ---")
     try:
         extract_market_data()
         transform_and_clean_data()
         load_to_postgres()
-        print("--- Full ETL execution complete! Check pgAdmin 4 for ngr_market_prices. ---")
+        print("--- Full ETL execution complete! ---")
     except Exception as e:
-        print(f"An error occurred during the run: {e}") 
+        print(f"Pipeline error: {e}")

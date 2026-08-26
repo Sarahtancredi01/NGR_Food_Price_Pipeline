@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd  # type: ignore
 import os
 
 def extract_food_prices():
@@ -12,13 +12,17 @@ def extract_food_prices():
     
     df = pd.DataFrame(data)
     
-    # Smart Pathing
+    # Smart Pathing: Target include/ directory outside of dags/
     current_folder = os.path.dirname(os.path.abspath(__file__))
     parent_folder = os.path.dirname(current_folder)
-    output_path = os.path.join(parent_folder, 'include', 'food_prices_raw.csv')
+    include_dir = os.path.join(parent_folder, 'include')
+    
+    # Ensure directory exists before saving
+    os.makedirs(include_dir, exist_ok=True)
+    output_path = os.path.join(include_dir, 'food_prices_raw.csv')
     
     df.to_csv(output_path, index=False)
-    print(f"✅ Success! Food prices extracted to {output_path}")
+    print(f"✅ Success! Extracted {len(df)} records to {output_path}")
 
 if __name__ == "__main__":
     extract_food_prices()
