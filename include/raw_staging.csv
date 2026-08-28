@@ -1,4 +1,143 @@
 item,price_naira,unit,market,date_recorded
+Rice (local),61000,50kg bag,MILE 12,2026-08-26
+Tomato,60000,Big basket,MILE 12,2026-08-26
+Beans (brown),950,1kg,GENERAL,2026-08-26
+Onion,450,1kg,GENERAL,2026-08-26
+Garri (white),800,1kg,MUSHIN,2026-08-26
+Rice (local),82000,50kg bag,MILE 12,2026-08-26
+Rice (local),41500,25kg bag,MILE 12,2026-08-26
+Rice (local),17000,10kg bag,MILE 12,2026-08-26
+Rice (local),8600,5kg bag,MILE 12,2026-08-26
+Rice (foreign/imported),95000,50kg bag,MILE 12,2026-08-26
+Rice (foreign/imported),48000,25kg bag,MILE 12,2026-08-26
+Beans (brown),115000,50kg bag,MILE 12,2026-08-26
+Beans (white),105000,50kg bag,MILE 12,2026-08-26
+Garri (white),48000,50kg bag,MILE 12,2026-08-26
+Garri (yellow),52000,50kg bag,MILE 12,2026-08-26
+Vegetable Oil,3200,1 Litre,MILE 12,2026-08-26
+Vegetable Oil,15500,5 Litres,MILE 12,2026-08-26
+Palm Oil,2800,1 Litre,MILE 12,2026-08-26
+Palm Oil,13500,5 Litres,MILE 12,2026-08-26
+Frozen Chicken (full),6500,1 kg,MILE 12,2026-08-26
+Frozen Turkey,7800,1 kg,MILE 12,2026-08-26
+Beef (fresh meat),6000,1 kg,MILE 12,2026-08-26
+Goat Meat,7500,1 kg,MILE 12,2026-08-26
+Eggs,5600,1 Crate,MILE 12,2026-08-26
+Indomie Noodles (Super Pack),14500,1 Carton,MILE 12,2026-08-26
+Spaghetti (Golden Penny),17500,1 Carton,MILE 12,2026-08-26
+Milo Sachet,3800,1 Roll (10s),MILE 12,2026-08-26
+Peak Milk Sachet,4200,1 Roll (10s),MILE 12,2026-08-26
+Refined Sugar (St. Louis),2200,1 Packet,MILE 12,2026-08-26
+Nutella,6500,350g Jar,MILE 12,2026-08-26
+Sausage Rolls (Gala),3000,1 Pack (12s),MILE 12,2026-08-26
+Golden Morn,3200,900g Pack,MILE 12,2026-08-26
+Semovita,11500,10kg bag,MILE 12,2026-08-26
+Yam,4500,1 Large Tuber,MILE 12,2026-08-26
+Tomatoes,45000,1 Big Basket,MILE 12,2026-08-26
+Rice (local),84000,50kg bag,AKUTE,2026-08-26
+Rice (local),42500,25kg bag,AKUTE,2026-08-26
+Rice (local),17500,10kg bag,AKUTE,2026-08-26
+Rice (local),8900,5kg bag,AKUTE,2026-08-26
+Rice (foreign/imported),98000,50kg bag,AKUTE,2026-08-26
+Rice (foreign/imported),49500,25kg bag,AKUTE,2026-08-26
+Beans (brown),2400,1 Paint Bucket,AKUTE,2026-08-26
+Beans (white),2200,1 Paint Bucket,AKUTE,2026-08-26
+Garri (white),3500,1 Paint Bucket,AKUTE,2026-08-26
+Garri (yellow),3800,1 Paint Bucket,AKUTE,2026-08-26
+Vegetable Oil,3400,1 Litre,AKUTE,2026-08-26
+Vegetable Oil,16200,5 Litres,AKUTE,2026-08-26
+Palm Oil,3000,1 Litre,AKUTE,2026-08-26
+Palm Oil,14200,5 Litres,AKUTE,2026-08-26
+Frozen Chicken (full),6800,1 kg,AKUTE,2026-08-26
+Frozen Turkey,8200,1 kg,AKUTE,2026-08-26
+Beef (fresh meat),6200,1 kg,AKUTE,2026-08-26
+Goat Meat,7800,1 kg,AKUTE,2026-08-26
+Eggs,5800,1 Crate,AKUTE,2026-08-26
+Indomie Noodles (Hungry Man),16500,1 Carton,AKUTE,2026-08-26
+Spaghetti (Dangote),16800,1 Carton,AKUTE,2026-08-26
+Milo Sachet,4000,1 Roll (10s),AKUTE,2026-08-26
+Loya Milk Sachet,3900,1 Roll (10s),AKUTE,2026-08-26
+Refined Sugar (Granulated),1800,1 kg,AKUTE,2026-08-26
+Nutella,6800,350g Jar,AKUTE,2026-08-26
+Sausage Rolls (Rite),3200,1 Pack (12s),AKUTE,2026-08-26
+Golden Morn,1800,400g Pack,AKUTE,2026-08-26
+Cornflakes (Kelloggs),3600,450g Pack,AKUTE,2026-08-26
+Onions,3500,1 Small Bag,AKUTE,2026-08-26
+Plantain,2500,1 Bunch,AKUTE,2026-08-26
+Rice (local),83500,50kg bag,ALAGBOLE,2026-08-26
+Rice (local),42000,25kg bag,ALAGBOLE,2026-08-26
+Rice (local),17200,10kg bag,ALAGBOLE,2026-08-26
+Rice (local),8800,5kg bag,ALAGBOLE,2026-08-26
+Rice (foreign/imported),97500,50kg bag,ALAGBOLE,2026-08-26
+Rice (foreign/imported),49000,25kg bag,ALAGBOLE,2026-08-26
+Beans (brown),2350,1 Paint Bucket,ALAGBOLE,2026-08-26
+Beans (white),2150,1 Paint Bucket,ALAGBOLE,2026-08-26
+Garri (white),3400,1 Paint Bucket,ALAGBOLE,2026-08-26
+Garri (yellow),3700,1 Paint Bucket,ALAGBOLE,2026-08-26
+Vegetable Oil,3350,1 Litre,ALAGBOLE,2026-08-26
+Vegetable Oil,16000,5 Litres,ALAGBOLE,2026-08-26
+Palm Oil,2950,1 Litre,ALAGBOLE,2026-08-26
+Palm Oil,14000,5 Litres,ALAGBOLE,2026-08-26
+Frozen Chicken (full),6700,1 kg,ALAGBOLE,2026-08-26
+Frozen Turkey,8000,1 kg,ALAGBOLE,2026-08-26
+Beef (fresh meat),6100,1 kg,ALAGBOLE,2026-08-26
+Goat Meat,7600,1 kg,ALAGBOLE,2026-08-26
+Eggs,5750,1 Crate,ALAGBOLE,2026-08-26
+Indomie Noodles (Super Pack),14800,1 Carton,ALAGBOLE,2026-08-26
+Spaghetti (Golden Penny),17200,1 Carton,ALAGBOLE,2026-08-26
+Milo Sachet,3900,1 Roll (10s),ALAGBOLE,2026-08-26
+Peak Milk Sachet,4300,1 Roll (10s),ALAGBOLE,2026-08-26
+Refined Sugar (St. Louis),2250,1 Packet,ALAGBOLE,2026-08-26
+Nutella,6700,350g Jar,ALAGBOLE,2026-08-26
+Sausage Rolls (Bigi),3000,1 Pack (12s),ALAGBOLE,2026-08-26
+Golden Morn,3300,900g Pack,ALAGBOLE,2026-08-26
+Wheat Flour,12500,10kg bag,ALAGBOLE,2026-08-26
+Potatoes (Irish),4500,1 Medium Basket,ALAGBOLE,2026-08-26
+Potatoes (Sweet),2500,1 Medium Basket,ALAGBOLE,2026-08-26
+Rice (local),86000,50kg bag,UTAKO,2026-08-26
+Rice (local),43500,25kg bag,UTAKO,2026-08-26
+Rice (local),18000,10kg bag,UTAKO,2026-08-26
+Rice (local),9200,5kg bag,UTAKO,2026-08-26
+Rice (foreign/imported),102000,50kg bag,UTAKO,2026-08-26
+Rice (foreign/imported),52000,25kg bag,UTAKO,2026-08-26
+Beans (brown),120000,50kg bag,WUSE,2026-08-26
+Beans (white),110000,50kg bag,WUSE,2026-08-26
+Garri (white),4200,1 Paint Bucket,WUSE,2026-08-26
+Garri (yellow),4500,1 Paint Bucket,WUSE,2026-08-26
+Vegetable Oil,3600,1 Litre,WUSE,2026-08-26
+Vegetable Oil,17000,5 Litres,WUSE,2026-08-26
+Palm Oil,3200,1 Litre,WUSE,2026-08-26
+Palm Oil,15000,5 Litres,WUSE,2026-08-26
+Frozen Chicken (full),7200,1 kg,WUSE,2026-08-26
+Frozen Turkey,8500,1 kg,WUSE,2026-08-26
+Beef (fresh meat),6500,1 kg,UTAKO,2026-08-26
+Goat Meat,8000,1 kg,UTAKO,2026-08-26
+Eggs,6000,1 Crate,UTAKO,2026-08-26
+Indomie Noodles (Super Pack),15500,1 Carton,UTAKO,2026-08-26
+Spaghetti (Golden Penny),18000,1 Carton,UTAKO,2026-08-26
+Milo Sachet,4200,1 Roll (10s),UTAKO,2026-08-26
+Peak Milk Sachet,4500,1 Roll (10s),UTAKO,2026-08-26
+Refined Sugar (St. Louis),2400,1 Packet,UTAKO,2026-08-26
+Nutella,7200,350g Jar,UTAKO,2026-08-26
+Sausage Rolls (Gala),3500,1 Pack (12s),UTAKO,2026-08-26
+Golden Morn,3500,900g Pack,UTAKO,2026-08-26
+Tomatoes,48000,1 Big Basket,UTAKO,2026-08-26
+Yam,5500,1 Large Tuber,UTAKO,2026-08-26
+Hot Dog Sausages (Pack),3500,1 Pack (10s),MILE 12,2026-08-26
+Baking Flour (Golden Penny),48000,50kg bag,MILE 12,2026-08-26
+Baking Flour (Golden Penny),24500,25kg bag,MILE 12,2026-08-26
+Garri (white),1800,1 Mudu,MILE 12,2026-08-26
+Beans (brown),2500,1 Mudu,MILE 12,2026-08-26
+Margarine (Blue Band),2800,900g Tub,MILE 12,2026-08-26
+Margarine (Simas),2200,1 kg,MILE 12,2026-08-26
+Icing Sugar (St. Louis/Simas),1800,500g Pack,MILE 12,2026-08-26
+Baking Powder (Royal),1200,100g Can,MILE 12,2026-08-26
+Instant Dry Yeast (Saf-Instant),1500,500g Pack,MILE 12,2026-08-26
+Vanilla Flavor (Liquid),1000,100ml Bottle,MILE 12,2026-08-26
+Cocoa Powder,3200,250g Pack,MILE 12,2026-08-26
+Liquid Milk (Peak Evaporated),1200,1 Can (400g),MILE 12,2026-08-26
+Granulated Sugar,2400,1 kg,MILE 12,2026-08-26
+Hot Dog Sausages (Pack),3800,1 Pack (10s),UTAKO,2026-08-26
 Rice (local),61000,50kg bag,Mile 12,2026-04-09
 Tomato,60000,Big basket,Mile 12,2026-04-09
 Beans (brown),950,1kg,General,2026-04-09
@@ -124,7 +263,6 @@ Sausage Rolls (Gala),3500,1 Pack (12s),Utako,2026-08-26
 Golden Morn,3500,900g Pack,Utako,2026-08-26
 Tomatoes,48000,1 Big Basket,Utako,2026-08-26
 Yam,5500,1 Large Tuber,Utako,2026-08-26
-item,price_naira,unit,market,date_recorded
 Hot Dog Sausages (Pack),3500,1 Pack (10s),Mile 12,2026-08-26
 Baking Flour (Golden Penny),48000,50kg bag,Mile 12,2026-08-26
 Baking Flour (Golden Penny),24500,25kg bag,Mile 12,2026-08-26
@@ -140,3 +278,53 @@ Cocoa Powder,3200,250g Pack,Mile 12,2026-08-26
 Liquid Milk (Peak Evaporated),1200,1 Can (400g),Mile 12,2026-08-26
 Granulated Sugar,2400,1 kg,Mile 12,2026-08-26
 Hot Dog Sausages (Pack),3800,1 Pack (10s),Utako,2026-08-26
+McVities Digestive Biscuits,14500,1 Carton (24s),Arepo,2026-08-28
+Munchkins Biscuits,11000,1 Carton,Arepo,2026-08-28
+Pringles Potato Chips,1850,1 Can (165g),Arepo,2026-08-28
+Cadbury Dairy Milk Chocolate,2200,1 Bar (90g),Arepo,2026-08-28
+Snickers Chocolate Bar,1200,1 Bar (50g),Arepo,2026-08-28
+Rice (local),83000,50kg bag,Arepo,2026-08-28
+Beans (brown),2300,1 Paint Bucket,Arepo,2026-08-28
+Garri (yellow),3600,1 Paint Bucket,Arepo,2026-08-28
+Vegetable Oil,3300,1 Litre,Arepo,2026-08-28
+Palm Oil,2900,1 Litre,Arepo,2026-08-28
+Eggs,5700,1 Crate,Arepo,2026-08-28
+McVities HobNobs Biscuits,16000,1 Carton (24s),Wuse,2026-08-28
+Munchkins Biscuits,11500,1 Carton,Wuse,2026-08-28
+Pringles Potato Chips,2000,1 Can (165g),Wuse,2026-08-28
+Toblerone Milk Chocolate,3500,1 Bar (100g),Wuse,2026-08-28
+Mars Chocolate Bar,1300,1 Bar (51g),Wuse,2026-08-28
+Rice (foreign/imported),103000,50kg bag,Wuse,2026-08-28
+Beef (fresh meat),6800,1 kg,Wuse,2026-08-28
+Frozen Chicken (full),7400,1 kg,Wuse,2026-08-28
+Indomie Noodles (Hungry Man),17000,1 Carton,Wuse,2026-08-28
+Tomatoes,47000,1 Big Basket,Wuse,2026-08-28
+McVities Digestive Biscuits,15000,1 Carton (24s),Garki,2026-08-28
+Munchkins Biscuits,11200,1 Carton,Garki,2026-08-28
+Pringles Potato Chips,1950,1 Can (165g),Garki,2026-08-28
+KitKat Chocolate Bar,1400,1 Finger Pack (45g),Garki,2026-08-28
+Rice (local),85000,50kg bag,Garki,2026-08-28
+Garri (white),4100,1 Paint Bucket,Garki,2026-08-28
+Vegetable Oil,3550,1 Litre,Garki,2026-08-28
+Spaghetti (Golden Penny),17800,1 Carton,Garki,2026-08-28
+Yam,5200,1 Large Tuber,Garki,2026-08-28
+Refined Sugar (St. Louis),2200,1 Packet,General,2026-08-28
+Milo Sachet,4000,1 Roll (10s),General,2026-08-28
+Peak Milk Sachet,4300,1 Roll (10s),General,2026-08-28
+Nutella,6800,350g Jar,General,2026-08-28
+Sausage Rolls (Gala),3000,1 Pack (12s),General,2026-08-28
+Golden Morn,3300,900g Pack,General,2026-08-28
+McVities Digestive Biscuits,14500,1 Carton (24s),General,2026-08-28
+Indomie Noodles (Super Pack),15000,1 Carton,General,2026-08-28
+Spaghetti (Golden Penny),17500,1 Carton,General,2026-08-28
+Hot Dog Sausages (Pack),3500,1 Pack (10s),General,2026-08-28
+Instant Dry Yeast (Saf-Instant),1500,500g Pack,General,2026-08-28
+Baking Powder (Royal),1200,100g Can,General,2026-08-28
+Margarine (Blue Band),2800,900g Tub,General,2026-08-28
+Icing Sugar (Simas),1800,500g Pack,General,2026-08-28
+Pringles Potato Chips,1900,1 Can (165g),General,2026-08-28
+Cadbury Dairy Milk Chocolate,2200,1 Bar (90g),General,2026-08-28
+Cocoa Powder,3200,250g Pack,General,2026-08-28
+Baking Flour (Golden Penny),48000,50kg bag,General,2026-08-28
+Vanilla Flavor (Liquid),1000,100ml Bottle,General,2026-08-28
+Cornflakes (Kelloggs),3600,450g Pack,General,2026-08-28
