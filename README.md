@@ -5,9 +5,9 @@ A Scalable Data Engineering Solution for Monitoring Food Price Trends Across Nig
 
 With food inflation continuing to affect households across Nigeria, access to current and reliable pricing data has become increasingly important. Manual data collection can be inconsistent and time-consuming, often leading to outdated information.
 
-To address this, I built an automated ETL (Extract, Transform, Load) pipeline that tracks weekly food price trends across more than 100+ food items.
+To address this, I built an automated ETL (Extract, Transform, Load) pipeline that tracks weekly food price trends across more than 300+ food items.
 
-The project initially focused on selected markets in Lagos but was later expanded to include markets in Abuja (Wuse, Garki, and Utako) and Ogun State (Akute and Arepo), providing a broader view of food prices across different regions.
+The project initially focused on selected markets in Lagos but was later expanded to include markets in Abuja (Wuse, Garki, and Utako) and Ogun State (Akute, Alagbole and Arepo), providing a broader view of food prices across different regions.
 
 🛠 Tech Stack
 Python 3.11 – Core scripting and workflow orchestration
@@ -47,7 +47,13 @@ The pipeline uses if_exists='replace' so downstream reporting tools such as Powe
 🚀 Key Features
 
 Scalable Design
-Expanded from an initial dataset of 32 items to over 100+ products, including fresh produce such as yam and tomatoes, as well as packaged household brands like Milo, McVitie's, and Golden Penny.
+Expanded from an initial dataset of 32 items to over 3ompressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 4.93 KiB | 17.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/Sarahtancredi01/NGR_Food_Price_Pipeline.git
+   6b9c12c..b323ab8  main -> main
+(.venv) PS C:\Users\USER\Desktop\NGR_Food_Price_Pipeline> 00+ products, including fresh produce such as yam and tomatoes, as well as packaged household brands like Milo, McVitie's, and Golden Penny.
 
 Multi-Region Coverage
 Tracks pricing trends across Lagos, Abuja, and Ogun State markets.
